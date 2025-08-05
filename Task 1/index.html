@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive Quiz App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <h1>Interactive Quiz App</h1>
+
+    <!-- Start screen -->
+    <div id="start-screen">
+      <p>🧠 You are about to take an exciting quiz!</p>
+      <p>📚 Choose a category and answer 10 questions.</p>
+      <p>⏱ You will have 10 seconds per question.</p>
+      <p>✍ Enter your name to begin:</p>
+      <input type="text" id="user-name" placeholder="Your Name" />
+      <select id="category">
+        <option value="">Select Category</option>
+        <option value="html">HTML & CSS</option>
+        <option value="js">JavaScript</option>
+      </select>
+      <button onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- Quiz screen -->
+    <div id="quiz-screen">
+      <div id="progress-wrapper">
+        <div id="progress-text">Question 1 of 10</div>
+        <div id="progress-bar">
+          <div id="progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="timer-ring">
+        <svg viewBox="0 0 100 100">
+          <circle class="timer-ring-bg" cx="50" cy="50" r="45"></circle>
+          <circle class="timer-ring-fill" cx="50" cy="50" r="45"
+            stroke-dasharray="282.6" stroke-dashoffset="0"></circle>
+        </svg>
+      </div>
+
+      <div id="question-container">
+        <div id="question">Question text</div>
+        <ul id="options"></ul>
+        <div id="feedback"></div>
+        <button id="next-btn" disabled>Next</button>
+      </div>
+    </div>
+
+    <!-- Score screen -->
+    <div id="score-container">
+      <h2>🎉 Quiz Completed!</h2>
+      <div id="final-score">0 / 10</div>
+      <div id="message"></div>
+      <button onclick="restartQuiz()">Restart Quiz</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
