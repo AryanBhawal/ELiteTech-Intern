@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Learning Platform</title>
+  <link rel="stylesheet" href="style.css" />
+
+
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-left">
+      <!-- Dark Mode Icon -->
+      <button onclick="toggleDarkMode()">🌙</button>
+      <!-- Nav Links -->
+      <div class="nav-links">
+        <a href="#available">Courses</a>
+        <a href="#progress">Progress</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#profile">Profile</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome! Learn Web Development</h1>
+    <p>Explore interactive courses, track your progress, and enhance your skills.</p>
+  </section>
+
+  <!-- Available Courses -->
+  <section id="available">
+    <h2>Available Courses</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://www.devopsschool.com/blog/wp-content/uploads/2022/03/html.jpg" alt="HTML">
+        <h3>HTML Basics</h3>
+        <p>Learn the fundamentals of HTML with this course.</p>
+        <a href="html-course.html"><button>View Course</button></a>
+      </div>
+      <div class="card">
+        <img src="https://cdn.mos.cms.futurecdn.net/Vp9WvV7YKdH4k8sKRePcE8.jpg" alt="CSS">
+        <h3>CSS Styling</h3>
+        <p>Master layouts, colors, and animations in CSS.</p>
+        <a href="css-course.html"><button>View Course</button></a>
+      </div>
+      <div class="card">
+        <img src="https://repository-images.githubusercontent.com/657736250/efe020c3-cfc2-41f9-be41-ad581ffc9969" alt="JS" width="120" height="120">
+
+        <h3>JavaScript Essentials</h3>
+        <p>Understand JS basics, DOM, and interactivity.</p>
+        <a href="js-course.html"><button>View Course</button></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Player Section -->
+  <section id="videoPlayer">
+    <iframe id="courseVideo" src="" allowfullscreen></iframe>
+    <p id="courseDetails"></p>
+    <button onclick="closeVideo()">Close</button>
+  </section>
+
+  <!-- Progress Tracking -->
+  <section id="progress">
+    <h2>Your Progress</h2>
+    <div class="progress-container">
+      <div class="progress-item">
+        <div class="progress-label">HTML</div>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label">CSS</div>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 60%;"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label">JavaScript</div>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 40%;"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Learners Said</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <p>"Great platform to learn frontend easily!"</p>
+        <strong>- Mark</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Really helped me in my internship preparation."</p>
+        <strong>- Paul</strong>
+      </div>
+      <div class="testimonial">
+        <p>"Professional and fun way to learn coding!"</p>
+        <strong>- Noah</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section id="profile" style="text-align: center;">
+    <h2>Profile</h2>
+    <div class="profile-box">
+      <p><strong>Name:</strong> Aryan Bhawal</p>
+      <p><strong>Education:</strong> B.Tech in Computer Science</p>
+      <p><strong>Email:</strong> aryan@example.com</p>
+      <p><strong>Status:</strong> Active User</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Aryan Bhawal | All rights reserved. Keep Learning. 🚀
+  </footer>
+
+  <!-- JavaScript for Dark Mode & Video Control -->
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function showVideo(url, detail) {
+      document.getElementById('videoPlayer').style.display = 'block';
+      document.getElementById('courseVideo').src = url;
+      document.getElementById('courseDetails').innerText = detail;
+    }
+
+    function closeVideo() {
+      document.getElementById('videoPlayer').style.display = 'none';
+      document.getElementById('courseVideo').src = '';
+    }
+  </script>
+</body>
+</html>
