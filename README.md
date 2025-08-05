@@ -1,4 +1,4 @@
-# 🌐 EliteTech Front-End Internship – Projects by Aryan Bhawal
+# 🌐 EliteTech Front-End Internship 
 
 I am proud to present the completed projects from my **Front-End Virtual Internship** with **EliteTech Intern**.  
 This internship gave me the opportunity to apply my web development skills and build modern, responsive, and interactive front-end applications using technologies like **HTML**, **CSS**, **JavaScript**, **React.js**, and **WebSocket**.
