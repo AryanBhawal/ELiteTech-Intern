@@ -81,7 +81,7 @@ A visually appealing single-page personal portfolio website that highlights my e
 
 ---
 
-### 📚 Task 4 – E-Learning Platform UI
+### 📚 Task 4 – E-Learning Platform - WebCanvas
 
 📁 **Folder:** `Task 4`
 
