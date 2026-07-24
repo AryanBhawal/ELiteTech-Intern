@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebCanvas | Modern E-Learning for Developers</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased">
+
+    <div id="app">
+        
+        <div id="main-content">
+            <header class="bg-[var(--background)]/80 backdrop-blur-sm sticky top-0 z-40 border-b border-[var(--border)] transition-colors">
+                <nav class="container mx-auto px-4 lg:px-8 flex items-center justify-between h-20">
+                    <a href="#" id="home-link-logo" class="flex items-center gap-2 text-2xl font-bold text-[var(--primary)]">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-[var(--primary)]"><path d="M7 8L3 12L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17 8L21 12L17 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14 4L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        <span class="text-[var(--heading-text)]">WebCanvas</span>
+                    </a>
+                    <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
+                        <a href="#courses" class="hover:text-[var(--primary)] transition-colors">Courses</a>
+                        <a href="#features" class="hover:text-[var(--primary)] transition-colors">Features</a>
+                        <a href="#" id="quiz-link-desktop" class="hover:text-[var(--primary)] transition-colors">Quiz</a>
+                        <a href="#" id="resources-link-desktop" class="hover:text-[var(--primary)] transition-colors">Resources</a>
+                        <a href="#contact" class="hover:text-[var(--primary)] transition-colors">Contact</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            <i id="theme-icon" data-lucide="sun" class="w-5 h-5"></i>
+                        </button>
+                        <button class="btn-primary hidden lg:block px-5 py-2.5 rounded-full text-sm font-semibold">
+                            Get Started Free
+                        </button>
+                        <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </nav>
+            </header>
+
+            <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-[var(--background)] shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+                <div class="p-4 flex flex-col h-full">
+                    <div class="flex justify-between items-center mb-8">
+                        <span class="font-bold text-lg text-[var(--primary)]">Menu</span>
+                        <button id="close-mobile-menu-btn" class="p-2"><i data-lucide="x"></i></button>
+                    </div>
+                    <nav class="flex flex-col gap-6 text-lg">
+                        <a href="#courses" class="mobile-menu-link hover:text-[var(--primary)]">Courses</a>
+                        <a href="#features" class="mobile-menu-link hover:text-[var(--primary)]">Features</a>
+                        <a href="#" id="quiz-link-mobile" class="mobile-menu-link hover:text-[var(--primary)]">Quiz</a>
+                        <a href="#" id="resources-link-mobile" class="mobile-menu-link hover:text-[var(--primary)]">Resources</a>
+                        <a href="#contact" class="mobile-menu-link hover:text-[var(--primary)]">Contact</a>
+                    </nav>
+                    <button class="btn-primary mt-auto w-full py-3 rounded-lg font-semibold">
+                        Get Started
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/40 z-40 hidden"></div>
+
+
+            <main class="flex-grow">
+                <section class="py-24 md:py-40 hero-section">
+                    <div class="container mx-auto px-4 text-center relative z-10">
+                        <h1 class="text-4xl md:text-6xl font-black tracking-tighter leading-tight md:leading-snug mb-6 text-white">
+                            The Canvas for Your <br class="hidden md:block" /> <span class="text-[var(--primary)]">Developer Career</span>
+                        </h1>
+                        <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-200 mb-10">
+                            From pixels to production, master the art of web development. Our hands-on courses guide you every step of the way.
+                        </p>
+                        <div class="flex justify-center">
+                            <a href="#courses" class="btn-primary px-8 py-4 rounded-full font-semibold text-lg">
+                                Explore Courses
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="courses" class="py-24 bg-slate-50 dark:bg-slate-900/50">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Your Learning Roadmap</h2>
+                            <p class="max-w-2xl mx-auto mt-4 text-slate-500 dark:text-slate-400 text-lg">
+                                Select a course to begin your journey. Each path is designed to build on the last, ensuring a solid foundation.
+                            </p>
+                        </div>
+                        <div id="course-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        </div>
+                    </div>
+                </section>
+
+                <section id="features" class="py-24">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-16">
+                             <h2 class="text-3xl md:text-5xl font-bold tracking-tight">A Better Way to Learn</h2>
+                            <p class="max-w-2xl mx-auto mt-4 text-slate-500 dark:text-slate-400 text-lg">
+                                We've built a platform that combines the best of theory and practice.
+                            </p>
+                        </div>
+                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                            <div class="p-8 card rounded-xl">
+                                <div class="inline-block p-4 bg-[var(--primary-light)] text-[var(--primary)] rounded-lg mb-4">
+                                    <i data-lucide="codesandbox" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Project-Based Learning</h3>
+                                <p>Build real-world projects, not just isolated examples. Solidify your understanding by creating tangible applications for your portfolio.</p>
+                            </div>
+                            <div class="p-8 card rounded-xl">
+                                <div class="inline-block p-4 bg-[var(--primary-light)] text-[var(--primary)] rounded-lg mb-4">
+                                    <i data-lucide="users-2" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Expert Instructors</h3>
+                                <p>Learn from professionals who have shipped production code at leading tech companies. Gain insights you won't find in a textbook.</p>
+                            </div>
+                             <div class="p-8 card rounded-xl">
+                                <div class="inline-block p-4 bg-[var(--primary-light)] text-[var(--primary)] rounded-lg mb-4">
+                                    <i data-lucide="check-circle" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Interactive Quiz</h3>
+                                <p>Test your knowledge with our interactive quizzes. Challenge yourself and track your progress in real time!</p>
+                            </div>
+                             <div class="p-8 card rounded-xl">
+                                <div class="inline-block p-4 bg-[var(--primary-light)] text-[var(--primary)] rounded-lg mb-4">
+                                    <i data-lucide="book-open" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Learning Resources</h3>
+                                <p>Access a curated list of resources and notes to expand your knowledge and skills.</p>
+                            </div>
+                            <div class="p-8 card rounded-xl">
+                                <div class="inline-block p-4 bg-[var(--primary-light)] text-[var(--primary)] rounded-lg mb-4">
+                                    <i data-lucide="life-buoy" class="w-8 h-8"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Vibrant Community</h3>
+                                <p>Never learn alone. Join our Discord community to get help, share your progress, and collaborate with fellow aspiring developers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="testimonials" class="py-24 bg-slate-100 dark:bg-slate-900/50">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">From Our Developers</h2>
+                            <p class="max-w-2xl mx-auto mt-4 text-slate-500 dark:text-slate-400 text-lg">Thousands of developers have launched their careers with WebCanvas.</p>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <div class="card p-8 rounded-xl shadow-sm">
+                                <p class="mb-6 text-lg">"The JavaScript and DOM courses were game-changers. The hands-on projects gave me the confidence to build complex, interactive applications."</p>
+                                <div class="flex items-center">
+                                    <div>
+                                        <p class="font-bold">Sarah L.</p>
+                                        <p class="text-sm">Frontend Developer @ TechCorp</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card p-8 rounded-xl shadow-sm">
+                                <p class="mb-6 text-lg">"I started with zero knowledge of coding. WebCanvas's structured curriculum, especially the HTML & CSS fundamentals, made learning intuitive and fun."</p>
+                                 <div class="flex items-center">
+                                    <div>
+                                        <p class="font-bold">Michael B.</p>
+                                        <p class="text-sm">Junior Developer @ Innovate Inc.</p>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="card p-8 rounded-xl shadow-sm">
+                                <p class="mb-6 text-lg">"The Git & GitHub course delved into collaboration workflows I couldn't grasp elsewhere. The instructor's explanations were crystal clear. Highly recommended!"</p>
+                                 <div class="flex items-center">
+                                    <div>
+                                        <p class="font-bold">Emily K.</p>
+                                        <p class="text-sm">Full-Stack Engineer @ DevSolutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="upcoming-courses" class="py-24">
+                    <div class="container mx-auto px-4">
+                        <div class="text-center mb-16">
+                            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Upcoming Courses</h2>
+                            <p class="max-w-2xl mx-auto mt-4 text-slate-500 dark:text-slate-400 text-lg">
+                                We're working hard to bring you new content. Get ready to dive into these technologies next!
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            <div class="card rounded-xl p-8 relative overflow-hidden opacity-70 text-center">
+                                <span class="absolute top-4 right-4 bg-amber-400 text-amber-900 text-xs font-bold px-2 py-1 rounded-full">COMING SOON</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React.js Logo" class="h-20 mx-auto mb-4"/>
+                                <h3 class="text-2xl font-bold">React.js</h3>
+                                <p class="mt-2 text-slate-500 dark:text-slate-400">Build powerful, single-page applications with the most popular JavaScript library in the world.</p>
+                            </div>
+                            <div class="card rounded-xl p-8 relative overflow-hidden opacity-70 text-center">
+                                <span class="absolute top-4 right-4 bg-amber-400 text-amber-900 text-xs font-bold px-2 py-1 rounded-full">COMING SOON</span>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js Logo" class="h-20 mx-auto mb-4"/>
+                                <h3 class="text-2xl font-bold">Node.js</h3>
+                                <p class="mt-2 text-slate-500 dark:text-slate-400">Take your JavaScript skills to the server-side to build fast, scalable network applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            
+            <footer id="contact" class="bg-[var(--card-bg)] border-t border-[var(--border)]">
+                <div class="container mx-auto px-4 py-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                        <div class="md:col-span-2 lg:col-span-1">
+                            <a href="#" class="flex items-center gap-2 text-2xl font-bold text-[var(--primary)] mb-4">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-[var(--primary)]"><path d="M7 8L3 12L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M17 8L21 12L17 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14 4L10 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                <span class="text-[var(--heading-text)]">WebCanvas</span>
+                            </a>
+                            <p class="text-sm">
+                                WebCanvas is a modern e-learning platform dedicated to making web development accessible to everyone. Our mission is to provide high-quality, project-based courses that equip you with the practical skills needed to launch and advance your developer career.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">Quick Links</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#" class="hover:text-[var(--primary)]">About Us</a></li>
+                                <li><a href="#features" class="hover:text-[var(--primary)]">Features</a></li>
+                                <li><a href="#testimonials" class="hover:text-[var(--primary)]">Testimonials</a></li>
+                                <li><a href="#" class="hover:text-[var(--primary)]">Support</a></li>
+                            </ul>
+                        </div>
+                         <div>
+                            <h4 class="font-bold mb-4">Courses</h4>
+                            <ul class="space-y-3">
+                                <li><a href="#courses" class="hover:text-[var(--primary)]">HTML</a></li>
+                                <li><a href="#courses" class="hover:text-[var(--primary)]">CSS</a></li>
+                                <li><a href="#courses" class="hover:text-[var(--primary)]">JavaScript</a></li>
+                                <li><a href="#courses" class="hover:text-[var(--primary)]">DOM</a></li>
+                                <li><a href="#courses" class="hover:text-[var(--primary)]">Git & GitHub</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="hover:text-[var(--primary)]"><i data-lucide="twitter"></i></a>
+                                 <a href="#" class="hover:text-[var(--primary)]"><i data-lucide="github"></i></a>
+                                 <a href="#" class="hover:text-[var(--primary)]"><i data-lucide="linkedin"></i></a>
+                            </div>
+                            <h4 class="font-bold mt-6 mb-2">Contact Us</h4>
+                            <p class="text-sm">support@webcanvas.dev</p>
+                        </div>
+                    </div>
+                     <div class="mt-12 pt-8 border-t border-[var(--border)] text-center text-sm">
+                        <p>&copy; 2025 WebCanvas. All rights reserved. Built with passion.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <div id="course-player-page" class="hidden min-h-screen flex-col bg-[var(--background)]">
+            <header class="bg-[var(--background)]/80 backdrop-blur-sm sticky top-0 z-40 border-b border-[var(--border)] flex-shrink-0">
+                <div class="container mx-auto px-4 lg:px-8 flex items-center justify-between h-20">
+                    <h3 id="course-player-title" class="text-xl font-bold">Course Title</h3>
+                    <button id="back-to-courses-btn" class="flex items-center gap-2 text-sm font-semibold hover:text-[var(--primary)] transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Back to Home
+                    </button>
+                </div>
+            </header>
+            <main class="flex-grow flex flex-col lg:flex-row overflow-hidden">
+                <div class="flex-grow flex flex-col order-1 lg:order-2">
+                    <div class="aspect-video bg-black w-full">
+                        <iframe id="video-player" class="w-full h-full" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6 md:p-8 overflow-y-auto flex-grow">
+                        <h4 id="lesson-title" class="text-2xl md:text-3xl font-bold mb-4">Lesson Title</h4>
+                        <div id="lesson-notes" class="prose dark:prose-invert max-w-none">
+                        </div>
+                    </div>
+                </div>
+                <aside class="w-full lg:w-80 xl:w-96 border-t lg:border-t-0 lg:border-r border-[var(--border)] flex-shrink-0 overflow-y-auto order-2 lg:order-1 h-64 lg:h-auto">
+                    <h4 class="font-semibold p-4 border-b border-[var(--border)] sticky top-0 bg-[var(--card-bg)] z-10">Course Modules</h4>
+                    <ul id="lesson-list" class="p-2 space-y-1">
+                    </ul>
+                </aside>
+            </main>
+        </div>
+
+        <div id="resources-page" class="hidden min-h-screen flex-col bg-[var(--background)]">
+            <header class="bg-[var(--background)]/80 backdrop-blur-sm sticky top-0 z-40 border-b border-[var(--border)] flex-shrink-0">
+                <div class="container mx-auto px-4 lg:px-8 flex items-center justify-between h-20">
+                    <h3 class="text-xl font-bold">Study Resources</h3>
+                    <button id="back-to-home-btn-resources" class="flex items-center gap-2 text-sm font-semibold hover:text-[var(--primary)] transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Back to Home
+                    </button>
+                </div>
+            </header>
+            <main class="flex-grow container mx-auto px-4 py-12 md:py-16">
+                <div id="resources-container">
+                    <div id="resources-menu">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Select a Course</h2>
+                            <p class="max-w-2xl mx-auto mt-4 text-slate-500 dark:text-slate-400 text-lg">
+                                Choose a topic to view the detailed study notes and materials.
+                            </p>
+                        </div>
+                        <div id="resources-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        </div>
+                    </div>
+
+                    <div id="resources-detail" class="hidden">
+                        <button id="back-to-resources-menu-btn" class="flex items-center gap-2 text-sm font-semibold hover:text-[var(--primary)] transition-colors mb-8">
+                            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                            Back to All Resources
+                        </button>
+                        <h2 id="resources-detail-title" class="text-3xl md:text-5xl font-bold tracking-tight mb-8"></h2>
+                        <div id="resources-detail-content" class="space-y-16">
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="quiz-page" class="hidden min-h-screen flex-col bg-[var(--background)]">
+            <header class="bg-[var(--background)]/80 backdrop-blur-sm sticky top-0 z-40 border-b border-[var(--border)] flex-shrink-0">
+                <div class="container mx-auto px-4 lg:px-8 flex items-center justify-between h-20">
+                    <h3 class="text-xl font-bold">Knowledge Check</h3>
+                    <button id="back-to-home-btn-quiz" class="flex items-center gap-2 text-sm font-semibold hover:text-[var(--primary)] transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Back to Home
+                    </button>
+                </div>
+            </header>
+            <main class="flex-grow flex flex-col items-center justify-center p-4">
+                 <div id="quiz-intro-screen" class="text-center max-w-2xl">
+                    <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Test Your Knowledge</h2>
+                    <p class="mt-4 text-lg text-slate-500 dark:text-slate-400">
+                        You've studied the courses, now it's time to see what you've learned! Select a category and challenge yourself with a timed quiz. Good luck!
+                    </p>
+                    <button id="go-to-quiz-btn" class="btn-primary px-8 py-4 rounded-full font-semibold text-lg mt-8">
+                        Take the Quiz
+                    </button>
+                </div>
+
+                <div id="quiz-app-container" class="hidden quiz-body">
+                    <div class="quiz-container">
+                        <h1>Interactive Quiz Session</h1>
+                        <div id="start-screen">
+                            <img src="https://static.vecteezy.com/system/resources/previews/029/920/152/non_2x/quiz-logo-with-speech-bubble-symbols-concept-of-questionnaire-show-sing-quiz-button-question-competition-stock-illustration-vector.jpg" alt="Quiz Image" class="quiz-image" />
+                            <p>🧠 You are about to take an exciting quiz!</p>
+                            <p>📚 Choose a category and answer 10 questions.</p>
+                            <p>⏱ You will have 10 seconds per question.</p>
+                            <p>✍ Enter your name to begin:</p>
+                            <input type="text" id="user-name" placeholder="Your Name" />
+                            <select id="category">
+                                <option value="">Select Category</option>
+                                <option value="html">HTML & CSS</option>
+                                <option value="js">JavaScript</option>
+                            </select>
+                            <button id="start-quiz-btn">Start Quiz</button>
+                        </div>
+                        <div id="quiz-screen" style="display: none;">
+                            <div id="progress-wrapper">
+                                <div id="progress-text">Question 1 of 10</div>
+                                <div id="progress-bar"><div id="progress-fill"></div></div>
+                            </div>
+                            <div id="question-container">
+                                <div class="timer-ring">
+                                    <svg viewBox="0 0 100 100">
+                                        <circle class="timer-ring-bg" cx="50" cy="50" r="45"></circle>
+                                        <circle class="timer-ring-fill" cx="50" cy="50" r="45" stroke-dasharray="282.6" stroke-dashoffset="0"></circle>
+                                    </svg>
+                                </div>
+                                <div id="question">Question text</div>
+                                <ul id="options"></ul>
+                                <div id="feedback"></div>
+                                <button id="next-btn" disabled>Next</button>
+                            </div>
+                        </div>
+                        <div id="score-container" style="display: none;">
+                            <img src="https://t3.ftcdn.net/jpg/05/06/59/28/360_F_506592872_vxk4kvIPHTwB3os3f6Hyw9HZHS6lAKkS.jpg" alt="Trophy" class="score-image" />
+                            <h2>🎉 Quiz Completed!</h2>
+                            <div id="final-score">0 / 10</div>
+                            <div id="message"></div>
+                            <button id="restart-quiz-btn">Restart Quiz</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
