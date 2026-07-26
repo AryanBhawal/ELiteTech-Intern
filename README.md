@@ -86,20 +86,21 @@ A visually appealing single-page personal portfolio website that highlights my e
 📁 **Folder:** `Task 4`
 
 **Description:**  
-A multi-page front-end design for an e-learning platform. It includes course listings, video-embedded course detail pages, and progress tracking features, all in a polished, interactive layout.
+A modern, multi-page e-learning platform. The project features an engaging and responsive user interface with course listings, embedded video lectures, organized study materials, and interactive learning sections for an enhanced educational experience.
 
 **Key Features:**
-- Hero section with welcome banner  
-- Image-based course cards  
-- Individual course progress bars  
-- Embedded YouTube videos in course pages  
+- Responsive multi-page educational website  
+- Interactive course cards with images 
+- Embedded YouTube video lectures  
+- Dedicated study material sections  
 - Responsive layout and transitions  
-- Dark mode toggle and profile section
+- Modern UI with animations and transitions
 
 **Tools Used:**
 - HTML  
 - CSS  
-- JavaScript  
+- JavaScript
+- Embedded YouTube API 
 - CSS Animations & Transitions
 
 ---
